@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LtL - The Smart Parent Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.5s ease-out forwards;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Welcome Section -->
+    <section class="gradient-bg text-white py-20 px-4 md:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 fade-in">Welcome to LtL</h1>
+            <p class="text-xl md:text-2xl mb-8 fade-in">The assistant that helps without needing to be asked</p>
+            
+            <div class="bg-white rounded-xl p-6 max-w-2xl mx-auto mt-8 shadow-xl slide-in">
+                <p class="text-gray-700 mb-4">"What's the hardest part of your week?"</p>
+                <div class="flex space-x-2">
+                    <input type="text" placeholder="Type your answer..." class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-700">
+                    <button class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition"><i class="fas fa-microphone"></i></button>
+                </div>
+            </div>
+            
+            <div class="mt-12 slide-in" style="animation-delay: 0.3s;">
+                <h3 class="text-xl font-semibold mb-4">Quick Profile Setup</h3>
+                <div class="flex flex-wrap justify-center gap-3 mb-6">
+                    <button class="bg-white bg-opacity-20 px-4 py-2 rounded-full hover:bg-opacity-30 transition">Spouse + Kids</button>
+                    <button class="bg-white bg-opacity-20 px-4 py-2 rounded-full hover:bg-opacity-30 transition">Single Parent</button>
+                    <button class="bg-white bg-opacity-20 px-4 py-2 rounded-full hover:bg-opacity-30 transition">Co-Parent</button>
+                    <button class="bg-white bg-opacity-20 px-4 py-2 rounded-full hover:bg-opacity-30 transition">Other</button>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 p-4 rounded-xl inline-block">
+                    <h4 class="font-medium mb-2">Sync Options</h4>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <button class="bg-white bg-opacity-20 px-3 py-1 rounded-lg flex items-center"><i class="fab fa-google mr-2"></i> Gmail</button>
+                        <button class="bg-white bg-opacity-20 px-3 py-1 rounded-lg flex items-center"><i class="fas fa-calendar-alt mr-2"></i> Calendar</button>
+                        <button class="bg-white bg-opacity-20 px-3 py-1 rounded-lg flex items-center"><i class="fab fa-apple mr-2"></i> iCloud</button>
+                        <button class="bg-white bg-opacity-20 px-3 py-1 rounded-lg flex items-center"><i class="fas fa-chalkboard-teacher mr-2"></i> Classroom</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Tour -->
+    <section class="py-16 px-4 md:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Your LtL Dashboard</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Today's Highlights -->
+                <div class="bg-indigo-50 rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-2 rounded-lg mr-3">
+                            <i class="fas fa-lightbulb text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-indigo-800">Today's Highlights</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Two pickups today</p>
+                                <p class="text-sm text-gray-500">Partner already reminded</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg flex items-start">
+                            <div class="bg-yellow-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-exclamation-circle text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Dentist reschedule needed</p>
+                                <p class="text-sm text-gray-500">I've started that for you</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mental Load Inbox -->
+                <div class="bg-pink-50 rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-pink-100 p-2 rounded-lg mr-3">
+                            <i class="fas fa-inbox text-pink-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-pink-800">Mental Load Inbox</h3>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded-lg flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="bg-blue-100 p-1 rounded mr-2">
+                                    <i class="fas fa-tasks text-blue-600 text-xs"></i>
+                                </div>
+                                <span>Do you want me to buy gift for teacher?</span>
+                            </div>
+                            <button class="text-gray-400 hover:text-gray-600"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        
+                        <div class="bg-white p-3 rounded-lg flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="bg-purple-100 p-1 rounded mr-2">
+                                    <i class="fas fa-calendar-day text-purple-600 text-xs"></i>
+                                </div>
+                                <span>Do you want me to book a sitter for date night?</span>
+                            </div>
+                            <button class="text-gray-400 hover:text-gray-600"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        
+                        <div class="bg-white p-3 rounded-lg flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="bg-green-100 p-1 rounded mr-2">
+                                    <i class="fas fa-user-friends text-green-600 text-xs"></i>
+                                </div>
+                                <span>do you want me to book a playdate for this weekend?</span>
+                            </div>
+                            <button class="text-gray-400 hover:text-gray-600"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 flex">
+                        <input type="text" placeholder="Add a thought..." class="flex-1 px-3 py-2 border rounded-l-lg focus:outline-none focus:ring-1 focus:ring-pink-500">
+                        <button class="bg-pink-600 text-white px-4 py-2 rounded-r-lg hover:bg-pink-700 transition"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-Life Scenarios -->
+    <section class="py-16 px-4 md:px-8 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Smart, Minimal-Input Support</h2>
+            
+            <!-- Scenario 1 -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-2 rounded-lg mr-3">
+                            <i class="fas fa-shopping-basket text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Grocery & Meals</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <p class="text-gray-600">Auto-generated based on your patterns:</p>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Taco night ingredients (Thursdays)</li>
+                            <li>School lunch staples</li>
+                            <li>Your usual milk & eggs</li>
+                        </ul>
+                        
+                        <div class="mt-4 bg-blue-50 p-4 rounded-lg">
+                            <p class="font-medium mb-2">Voice command example:</p>
+                            <div class="flex items-center">
+                                <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                    <i class="fas fa-microphone text-blue-600"></i>
+                                </div>
+                                <p class="text-gray-700">"Order groceries for next week"</p>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">→ Autofills Instacart with your regular items</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-center">
+                    <div class="bg-white p-6 rounded-xl shadow-lg max-w-xs">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Order placed!</p>
+                                <p class="text-sm text-gray-500">Instacart delivery scheduled</p>
+                            </div>
+                        </div>
+                        <img src="https://via.placeholder.com/300x200/e2f8e6/228B22?text=Grocery+List" alt="Grocery List" class="rounded-lg mb-3">
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">View Details</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scenario 2 -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="flex items-center justify-center order-last md:order-first">
+                    <div class="bg-white p-6 rounded-xl shadow-lg max-w-xs">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-exclamation text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Schedule Conflict</p>
+                                <p class="text-sm text-gray-500">Needs your attention</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3 mb-4">
+                            <div class="bg-red-50 p-3 rounded-lg">
+                                <p class="text-sm font-medium">Vet Appointment</p>
+                                <p class="text-xs text-gray-500">Wed 3:00-3:45 PM</p>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <p class="text-sm font-medium">Ballet Class</p>
+                                <p class="text-xs text-gray-500">Wed 3:30-4:30 PM</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition mb-2">Suggest a Sitter</button>
+                        <button class="w-full bg-white border border-gray-300 py-2 rounded-lg hover:bg-gray-50 transition">Reschedule</button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                            <i class="fas fa-calendar-alt text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Calendar & School Sync</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="font-medium mb-1">From School Newsletter:</p>
+                            <p class="text-gray-700">"Book fair on Friday, early pickup at 1:30"</p>
+                            <p class="text-sm text-gray-500 mt-2">→ Automatically added to your calendar</p>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <p class="font-medium">Highlighted Overlap:</p>
+                            <p class="text-gray-700">"Vet appointment overlaps with ballet — want me to suggest a sitter?"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scenario 3 -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 p-2 rounded-lg mr-3">
+                            <i class="fas fa-hands-helping text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Delegation Assistant</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <p class="font-medium mb-2">One-click delegation:</p>
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition flex items-center">
+                                <i class="fas fa-user-friends mr-2"></i> Ask my partner
+                            </button>
+                        </div>
+                        
+                        <div class="bg-white border border-gray-200 p-4 rounded-lg">
+                            <p class="text-sm text-gray-500 mb-1">Smart message crafted:</p>
+                            <p class="text-gray-700 mb-2">"Hey, can you grab cleats for soccer this weekend? I added it to your calendar."</p>
+                            <div class="flex space-x-2">
+                                <button class="bg-green-600 text-white px-3 py-1 text-sm rounded hover:bg-green-700 transition">Send</button>
+                                <button class="bg-white border border-gray-300 px-3 py-1 text-sm rounded hover:bg-gray-50 transition">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-center">
+                    <div class="bg-white p-6 rounded-xl shadow-lg max-w-xs">
+                        <div class="flex items-center mb-4">
+                            <img src="https://via.placeholder.com/40" alt="Partner" class="rounded-full mr-3">
+                            <div>
+                                <p class="font-medium">Alex</p>
+                                <p class="text-sm text-gray-500">Partner</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                            <p class="text-gray-700">"Sure, I'll pick them up after work on Friday."</p>
+                            <p class="text-xs text-gray-500 mt-1">Today, 2:14 PM</p>
+                        </div>
+                        <div class="bg-blue-100 p-4 rounded-lg">
+                            <p class="text-gray-700">"Hey, can you grab cleats for soccer this weekend?"</p>
+                            <p class="text-xs text-gray-500 mt-1">Today, 2:10 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Human Assistant -->
+    <section class="py-16 px-4 md:px-8 bg-indigo-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+                <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-hands-helping text-indigo-600 text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Optional Human Assistance</h2>
+                <p class="text-gray-600 mb-6">"Need help booking the sitter or researching camps?"</p>
+                
+                <div class="bg-indigo-50 p-4 rounded-lg inline-block max-w-md mx-auto mb-6">
+                    <div class="flex items-start">
+                        <img src="https://via.placeholder.com/40" alt="Assistant" class="rounded-full mr-3">
+                        <div class="text-left">
+                            <p class="font-medium">LtL Assistant</p>
+                            <p class="text-sm text-gray-600">"We've found 3 options near you for this weekend — want to confirm?"</p>
+                            <div class="flex space-x-2 mt-2">
+                                <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700 transition">View Options</button>
+                                <button class="bg-white border border-gray-300 px-3 py-1 text-sm rounded hover:bg-gray-50 transition">Not Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition font-medium">
+                    Learn About Premium Features
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Digest -->
+    <section class="py-16 px-4 md:px-8 bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Your Week in Review</h2>
+            <p class="text-xl mb-8">Reframing mental load as visible and appreciated</p>
+            
+            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-8 mb-8">
+                <h3 class="text-2xl font-semibold mb-6">This Week's Wins</h3>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <p class="text-3xl font-bold">11</p>
+                        <p class="text-sm">tasks completed</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <p class="text-3xl font-bold">4</p>
+                        <p class="text-sm">delegated</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <p class="text-3xl font-bold">2</p>
+                        <p class="text-sm">reminders sent</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <p class="text-3xl font-bold">3.5h</p>
+                        <p class="text-sm">time saved</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-30 p-4 rounded-lg">
+                    <p class="text-lg font-medium">"You lightened your load by 3.5 hours this week. That's a big deal."</p>
+                </div>
+            </div>
+            
+            <button class="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-opacity-90 transition font-medium pulse-animation">
+                Share Your Wins <i class="fas fa-share-alt ml-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 px-4 md:px-8 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Ready to lighten your mental load?</h2>
+            <p class="text-xl text-gray-600 mb-8">Not another task list. A partner that actually helps.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                <button class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition font-medium">
+                    Join the Waitlist
+                </button>
+                <button class="bg-white border border-purple-600 text-purple-600 px-6 py-3 rounded-lg hover:bg-purple-50 transition font-medium">
+                    Try the Survey
+                </button>
+                <button class="bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition font-medium">
+                    Share Feedback
+                </button>
+            </div>
+            
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-purple-600"><i class="fab fa-apple text-2xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-purple-600"><i class="fab fa-google-play text-2xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-purple-600"><i class="fab fa-facebook text-2xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-purple-600"><i class="fab fa-instagram text-2xl"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-100 py-8 px-4 md:px-8 text-gray-600">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <span class="font-bold text-gray-700">LtL</span>
+                    </div>
+                </div>
+                <div class="flex space-x-6 mb-4 md:mb-0">
+                    <a href="#" class="hover:text-purple-600">Privacy</a>
+                    <a href="#" class="hover:text-purple-600">Terms</a>
+                    <a href="#" class="hover:text-purple-600">FAQ</a>
+                    <a href="#" class="hover:text-purple-600">Contact</a>
+                </div>
+                <div class="text-sm">
+                    &copy; 2023 LtL. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animations on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('slide-in');
+                    }
+                });
+            }, {threshold: 0.1});
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Microphone animation
+            const micBtn = document.querySelector('.fa-microphone');
+            if (micBtn) {
+                micBtn.addEventListener('click', function() {
+                    this.parentElement.classList.add('animate-pulse');
+                    setTimeout(() => {
+                        this.parentElement.classList.remove('animate-pulse');
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
